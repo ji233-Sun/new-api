@@ -35,6 +35,7 @@ jobs:
           go-version: '>=1.18.0'
       - name: Build Backend
         run: |
+          go env -w CGO_ENABLED=1
           go env -w GOOS=windows
           go env -w GOARCH=amd64
           go mod download
