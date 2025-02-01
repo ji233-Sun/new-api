@@ -35,6 +35,8 @@ jobs:
           go-version: '>=1.18.0'
       - name: Build Backend
         run: |
+          go env -w GOOS=windows
+          go env -w GOARCH=amd64
           go mod download
           go build -ldflags "-s -w -X 'one-api/common.Version=$(git describe --tags)'" -o one-api.exe
       - name: Release
